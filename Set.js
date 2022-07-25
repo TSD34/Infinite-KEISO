@@ -45,7 +45,4 @@ if (localStorage.getItem("InfiniteKEISO") === null) {
 	var game = JSON.parse(json);
     console.log(game);
     delete json;
-    if (game.keisopoint === undefined) {
-        game.keisopoint = game.kasuamount / 100
-    }
 }
