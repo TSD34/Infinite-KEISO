@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Infinitie KEISO</title>
+	<script src="Script.js"></script>
+	<script src="Set.js"></script>
+	<style>
+		.box {
+			position: relative;
+		}
+		.content {
+			position: absolute;
+			inset: 0px;
+			margin: auto;
+		}
+		.button {
+			border-width: 1.5px;
+    		cursor: pointer;
+    		transition-duration: 0.1s;
+    		width: 200px;
+    		height: 100px;
+    		font-size: 18px;
+		}
+	</style>
+</head>
+<body onclick="start()" class="box">
+	<img style="display: block; margin-top: 90px; margin-bottom: auto; margin-left: auto; margin-right: auto;" src="https://lh3.googleusercontent.com/pw/AM-JKLU-ftczPmm_oIyVrCSEOsI8mS-uyUlwVAiT-14i0js6Z-447d69lNe2iMfDIUx-adRpXy4rmDwBuqOYo8OiqHaFTQMJScM5Q6F7oERP6wO-U9ZRRpTdM2wW9kxj_Ct33AEvddxspkkJlcvvrjHDL8M=w730-h461-no?authuser=0" id="startimg">
+	<div>
+		<img style="display: none; z-index: 0; margin: 90px auto auto; width: 650px; height: 461px;" class="content" src="https://lh3.googleusercontent.com/pw/AM-JKLXZn89U1KoeBeLV4uvE2jK2djjp7Ib98jImQ7LOO4YBxThPgGhdTSUrHkrNGQpB_jQ494_0-d-BaowDJbVnvIyGVLH_wea0NC-qLjRxKnxgnUCquqLNDerTxNon1s7Mdqv06k7V9Hylev74BGSZqwE=w650-h461-no?authuser=0" id="background">
+	</div>
+	<div id="game-content" style="display: none; z-index: 10;">
+		<header>
+			<div class="box">
+				<h1 id="KEISO" style="text-align: center;" class="content">1 KEISO</h1>
+			</div>
+			<div class="box" style="top: 45px;">
+				<h2 id="water" style="text-align: center;" class="content">水:0</h2>
+			</div>
+			<div class="box" style="top: 80px;">
+				<h2 id="air" style="text-align: center;" class="content">酸素:0</h2>
+			</div>
+			<div class="box" style="top: 115px;">
+				<h2 id="food" style="text-align: center;" class="content">養分:0</h2>
+			</div>
+		</header>
+		<main>
+			<div class="box" style="top: 190px;">
+				<svg width="800px" height="36px" class="content">
+					<rect width="800px" height="36px" fill=#E0E0E0></rect>
+					<rect style="width: 0px;" height="36px" fill=#00FF00 id="greenrect"></rect>
+				</svg>
+			</div>
+			<h2 class="box" style="top: 172px; left: 300px; width: 200px;" id="prog">0%</h2>
+			<h3 class="box" style="top: 90px; left: 950px; visibility: hidden; width: 200px;" id="plusdis">+1 KEISO</h3>
+			<div class="box" style="top: 190px;">
+				<div class="content" style="width: 612px; height: 104px;">
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<button type="button" onclick="up(0)" class="button">
+										<p>
+											水を増産
+											<div id="cost0">70 KEISOUs</div>
+										</p>
+									</button>
+								</td>
+								<td>
+									<button type="button" onclick="up(1)" class="button">
+										<p>
+											酸素を増産
+											<div id="cost1">150 KEISOUs</div>
+										</p>
+									</button>
+								</td>
+								<td>
+									<button type="button" onclick="up(2)" class="button">
+										<p>
+											養分を増産
+											<div id="cost2">30 KEISOUs</div>
+										</p>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="box" style="top: 300px;">
+				<div class="content" style="width: 350px; height: 104px;" id="kasudis">
+					<p id="KEISOkasu" style="display: none; font-size: 18px; background-color: blue; color: white; text-align: center; margin-top: 9px; margin-bottom: 0px;">
+						合計0 KEISOUsを力久に売った
+					</p>
+					<p id="KEISOpoint" style="display: none; font-size: 18px; background-color: blue; color: white; text-align: center; margin-top: 0px; margin-bottom: 0px;">
+						KEISOpoint:0P
+					</p>
+					<p id="mag" style="display: none; font-size: 18px; background-color: blue; color: white; text-align: center; margin-top: 0px;">
+						KEISOの生産:1x
+					</p>
+				</div>
+				<div class="content" style="width: 206px; height: 106px;" id="kasubutton">
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<button type="button" onclick="kasu(0)" class="button" id="kasu1">
+										<p>
+											<div id="kasu">???</div>
+											<br>
+											<div id="cost3">Need 100 KEISOUs</div>
+										</p>
+									</button>
+								</td>
+								<td>
+									<button type="button" onclick="kasu(1)" class="button" id="kasu2" style="display: none;">
+										<p>
+											力久に売る
+											<br>
+											<br>
+											1万 KEISOUs
+										</p>
+									</button>
+								</td>
+								<td>
+									<button type="button" onclick="kasu(2)" class="button" id="kasu3" style="display: none;">
+										<p>
+											力久に売る
+											<br>
+											<br>
+											100万 KEISOUs
+										</p>
+									</button>
+								</td>
+								<td>
+									<button type="button" onclick="kasu(3)" class="button" id="kasu4" style="display: none;">
+										<p>
+											力久に売る
+											<br>
+											<br>
+											1億 KEISOUs
+										</p>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="box" style="top: 400px;" id="save">
+				<div class="content" style="width: 107px; height: 37px;">
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<button type="button" onclick="save()" style="padding: 0px 30px;">
+										<p style="font-size: 18px; margin: 8px 0px;">Save</p>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</main>
+	</div>
+</body>
+</html>
